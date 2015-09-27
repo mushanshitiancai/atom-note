@@ -1,0 +1,18 @@
+{
+  "name": "atom-note",
+  "main": "./lib/atom-note",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "atom-note:toggle"
+  },
+  "repository": "https://github.com/atom/atom-note",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
