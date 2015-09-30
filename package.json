@@ -6,7 +6,10 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "atom-note:toggle"
+    "atom-text-editor": [
+      "atom-note:insert-list-new-line",
+      "atom-note:test"
+    ]
   },
   "repository": "https://github.com/atom/atom-note",
   "license": "MIT",
@@ -14,5 +17,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "mkdirp":	"^0.5.1",
+    "atom-space-pen-views": "^2.0.3"
   }
 }

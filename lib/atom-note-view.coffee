@@ -1,22 +1,33 @@
+{$, View, TextEditorView} = require "atom-space-pen-views"
+
 module.exports =
-class AtomNoteView
-  constructor: (serializedState) ->
-    # Create root element
-    @element = document.createElement('div')
-    @element.classList.add('atom-note')
+class AtomNoteView extends View
+  @content: ->
+    @div class: "atom-note atom-note-dialog",=>
+      @label "Create a new Notebook", class: "icon"
+      @div =>
+        @label "notebook path:"
+        @subview "notebookPath",new TextEditorView(mini:true)
 
-    # Create message element
-    message = document.createElement('div')
-    message.textContent = "The AtomNote package is Alive! It's ALIVE!"
-    message.classList.add('message')
-    @element.appendChild(message)
 
-  # Returns an object that can be retrieved when package is activated
-  serialize: ->
+  initialize: ->
+    atom.commands.add @element,
+      "core:confirm" : => @onConfirm()
+      "core:cancel"  : => @detach()
 
-  # Tear down any state and detach
-  destroy: ->
-    @element.remove()
+  display: ->
+    @panel ?= atom.workspace.addModalPanel(item:this,visible:false)
+    @panel.show()
+    @notebookPath.focus()
 
-  getElement: ->
-    @element
+    @notebookPath.setText(atom.project.getPaths()[0])
+
+  detach: ->
+    if @panel.isVisible()
+      @panel.hide()
+    super
+
+  onConfirm: ->
+    if notebook.create(@notebookPath.getText())
+      console.log 'create success'
+      @detach()

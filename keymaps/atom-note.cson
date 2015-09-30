@@ -7,5 +7,9 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-'atom-workspace':
-  'ctrl-alt-o': 'atom-note:toggle'
+'atom-text-editor[data-grammar~=gfm]':
+  'enter': 'atom-note:insert-list-new-line'
+
+".atom-note atom-text-editor[mini]":
+  "enter": "core:confirm"
+  "escape": "core:cancel"
