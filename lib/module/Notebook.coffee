@@ -1,6 +1,5 @@
 path = require "path"
-fs = require "fs"
-mkdirp = require "mkdirp"
+fs = require "fs-extra"
 
 module.exports=
 class Notebook
@@ -14,7 +13,9 @@ class Notebook
       alert "foder existed!"
     catch
       # folder doesn't exist
-      mkdirp.sync newPath
+      fs.mkdirsSync(newPath)
       atom.open(pathsToOpen:[newPath],newWindow:true)
       return true
     return false
+
+  openTodayJournal: ->

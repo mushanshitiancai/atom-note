@@ -1,3 +1,5 @@
-Util = require('../module/Util')
+fs   = require('fs')
+path = require('path')
+Util = require('../util/Util')
 
-module.exports = NotebookCommand =
+# module.exports = NotebookCommand =
