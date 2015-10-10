@@ -4,13 +4,7 @@
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [],
-  "activationCommands": {
-    "atom-text-editor": [
-      "atom-note:insert-list-new-line",
-      "atom-note:test",
-      "atom-note:insert-image"
-    ]
-  },
+  
   "repository": "https://github.com/atom/atom-note",
   "license": "MIT",
   "engines": {
@@ -19,6 +13,7 @@
   "dependencies": {
     "atom-space-pen-views": "^2.0.3",
     "fs-extra": "^0.24.0",
+    "js-yaml": "^3.4.2",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "osenv": "^0.1.3"
