@@ -1,6 +1,7 @@
 fs   = require('fs')
 path = require('path')
 Util = require('./Util')
+NoteUtil = require('./NoteUtil')
 momnet = require('moment')
 
 module.exports = NotebookUtil =
@@ -32,4 +33,9 @@ module.exports = NotebookUtil =
     return path.join(notebookPath,'Journal/'+momnet(date).format('YYYY/MM/DD')+@noteFileExt)
 
   openJournal: (date=new Date())->
-    return atom.workspace.open(journalPath) if journalPath = @getJournalPath()
+    return if not journalPath = @getJournalPath(date)
+
+    # try to init note
+    NoteUtil.initNote(journalPath,momnet(date).format('YYYY年MM月DD日'))
+
+    return atom.workspace.open(journalPath)

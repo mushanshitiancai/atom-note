@@ -2,6 +2,7 @@ NotebookUtil = require('../../lib/util/NotebookUtil')
 TestUtil     = require('../TestUtil')
 moment       = require('moment')
 path         = require('path')
+fs           = require('fs-extra')
 
 describe "NotebookUtil test", ->
   mNotebookPath = null
@@ -74,7 +75,7 @@ describe "NotebookUtil test", ->
       waitsForPromise ->
         NotebookUtil.openJournal().then ->
           expect(atom.workspace.getActiveTextEditor()?.getPath())
-            .toBe(TestUtil.getJournalPath())
+            .toBe(fs.realpathSync(TestUtil.getJournalPath()))
 
     afterEach ->
       TestUtil.removeNotebook()

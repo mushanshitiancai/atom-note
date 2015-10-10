@@ -3,6 +3,7 @@ AtomNoteView = require './atom-note-view'
 Editor = require './Edit'
 Notebook = require "./module/Notebook"
 Util = require "./util/Util"
+NotebookCommand = require './commands/NotebookCommand'
 
 global.notebook = new Notebook;
 
@@ -16,6 +17,7 @@ module.exports = AtomNote =
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:insert-list-new-line': => editor.insertNewLine()
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:test': => @test()
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:insert-image': => @insertImage()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atom-note:open-today-journal': => NotebookCommand.open_today_journal()
 
     # workspaceElement = atom.views.getView(atom.workspace)
     # workspaceElement.addEventListener 'keydown',(e)=>

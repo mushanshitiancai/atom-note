@@ -20,7 +20,7 @@ Zim底子里是wiki。保存的文件也都是纯文本。他的半所见即所�
 
 NotebookCommand
 - insert-image
-- open-today-journal
+- open-today-journal √
 
 NotebookUtil
 - isLegalNotebook √
@@ -29,11 +29,30 @@ NotebookUtil
 - openJournal √
 
 NoteUtil
-- initNote
-- generateNoteHeader
+- initNote √
+- generateNoteHeader √
+
+### 2015年10月10日
+初始化文件头，需要使用YAML [The Official YAML Web Site](http://yaml.org/)
+
+```
+npm install js-yaml
+```
 
 ## 问题
 - 使用electron的剪贴板模块，保存截图到文件中，分辨率会比较低，这是为什么？
 
 ## 关键词
 - Git Large File Storage v1.0
+
+## temp
+
+```
+"activationCommands": {
+  "atom-text-editor": [
+    "atom-note:insert-list-new-line",
+    "atom-note:test",
+    "atom-note:insert-image"
+  ]
+},
+```
