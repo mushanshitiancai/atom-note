@@ -2,7 +2,10 @@
 A powerful and handy note for Atom.
 
 # Featue
-comming...
+## Insert image form clipboard
+atom-note can very easily to paste a image form clipboard to markdown file.Through two method:
+- use ctrl+v
+- input `img:image-name` and then enter tab
 
 # TODO
 ## Phase One

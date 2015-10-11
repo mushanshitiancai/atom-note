@@ -2,6 +2,9 @@ _ = require('lodash')
 fs = require('fs')
 
 module.exports = Util =
+  FILENAME_REGEX: /\w+[-|\w]*/
+  IMG_PREFIX_REGEX: /img\:\w+[-|\w]*/
+
   getProjectPaths: ->
     return atom.project.getPaths()
 
@@ -30,6 +33,29 @@ module.exports = Util =
 
   getSelectedText: ->
     return atom.workspace.getActiveTextEditor()?.getSelectedText()
+
+  deleteBufferRange: (range)->
+    editor = atom.workspace.getActiveTextEditor()
+    editor?.setSelectedBufferRange(range)
+    editor?.delete()
+
+  getPrefixText: (regex)->
+    editor = atom.workspace.getActiveTextEditor()
+    cursors = editor?.getCursors()
+    return if not cursors
+    prefix = undefined
+
+    for cursor in cursors
+      cursorPosition  = cursor.getBufferPosition()
+      console.log cursorPosition
+      prefixStartPosition = cursor.getBeginningOfCurrentWordBufferPosition(wordRegex:regex,allowPrevious:false)
+      console.log prefixStartPosition
+      return if prefixStartPosition.compare(cursorPosition)==0
+      truePrefix = editor.getTextInRange([prefixStartPosition,cursorPosition])
+      return if prefix? and prefix isnt truePrefix
+      prefix = truePrefix
+
+    return text:prefix,range:[prefixStartPosition,cursorPosition]
 
   realPath: (path)->
     try
