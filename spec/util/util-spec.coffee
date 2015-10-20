@@ -1,4 +1,4 @@
-Util = require('../../lib/util/Util')
+Util = require('.././util/Util')
 path = require('path')
 TestUtil = require('../TestUtil')
 momnet = require('moment')

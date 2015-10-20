@@ -1,4 +1,4 @@
-NoteUtil = require('../../lib/util/NoteUtil')
+NoteUtil = require('.././util/NoteUtil')
 TestUtil = require('../TestUtil')
 
 describe "NoteUtil test", ->

@@ -1,4 +1,4 @@
-NotebookUtil = require('../../lib/util/NotebookUtil')
+NotebookUtil = require('.././util/NotebookUtil')
 TestUtil     = require('../TestUtil')
 moment       = require('moment')
 path         = require('path')

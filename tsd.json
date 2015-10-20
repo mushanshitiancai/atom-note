@@ -1,0 +1,39 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "q/Q.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "emissary/emissary.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "space-pen/space-pen.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "mixto/mixto.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "atom/atom.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "node/node.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "text-buffer/text-buffer.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "status-bar/status-bar.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    },
+    "pathwatcher/pathwatcher.d.ts": {
+      "commit": "b70895565dd5bd5de71c31e573d781409554bbf1"
+    }
+  }
+}

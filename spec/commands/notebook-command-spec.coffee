@@ -1,5 +1,5 @@
 path = require('path')
-NotebookCommand = require '../../lib/commands/NotebookCommand'
+NotebookCommand = require '.././commands/NotebookCommand'
 util = require('../TestUtil')
 
 describe "NotebookCommand test",->

@@ -1,4 +1,4 @@
-AtomNote = require '../lib/atom-note'
+AtomNote = require './atom-note'
 
 # Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 #
