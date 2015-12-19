@@ -1,1 +1,0 @@
-{"version":3,"sources":["hello.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC;AACjB,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,CAAC","file":"hello.js","sourcesContent":["/**\n * Created by mazhibin on 15/10/20.\n */\n\nconsole.log('f');\nconsole.log('hi');\n"],"sourceRoot":"/source/"}

@@ -31,13 +31,20 @@ Zim底子里是wiki。保存的文件也都是纯文本。他的半所见即所�
 
 ### TODO
 - zend书写模式？
-- 日历界面
+- 日历[<0;40;10M]界面
 - 快速唤出收集箱
 - 标题折叠
 - 锚点
 - atom-note需要对markdown做哪些扩展？
 - 如何集成ascii-doc？
 - 代码折叠(贴长代码如果不能折叠,还是很痛苦的)
+- focus模式
+- markdown+outliner，这样才能让markdown更有生命力
+- 学习FoldingText，Ulysses III
+- 学习 Introduction | FoldingText for Atom User's Guide https://jessegrosjean.gitbooks.io/foldingtext-for-atom-user-s-guide/content/
+- 学习atom-typescript中如何显示鼠标悬浮提示
+- 图片是保存在本地的，这对于网络分享不便。加一个功能，转换成网络格式，也就是把图片都上传到某图床后替换连接的格式。
+- atom默认的markdown高亮，所有级别的标题都是一个高亮，可以分级设置为不同的颜色
 
 ## 概念与设计
 ## 名词
@@ -77,6 +84,9 @@ atom-note-demo
 {
   "name": "first-note-book",
   "author": "tobyn",
+
+
+
   "format": "atom-note-v0.01"
 }
 ```
@@ -96,7 +106,7 @@ NotebookUtil
 
 ### 2015年10月10日~
 - [x] NoteUtil::initNote
-- [x] NoteUtil::generateNoteHeader
+- [x] NoteUtil::generateNoteHeader
 
 初始化文件头，需要使用YAML [The Official YAML Web Site](http://yaml.org/)
 
@@ -149,6 +159,43 @@ tsd install atom --save
 
 编写tsconfig.json
 编写gulpfile.js
+
+### 2015年10月28日
+DefinitelyTyped中的atom类型定义中没有CompositeDisposable这个类型
+
+atom: CompositeDisposable not declared · Issue #4482 · borisyankov/DefinitelyTyped
+https://github.com/borisyankov/DefinitelyTyped/issues/4482
+
+看来需要自己添加？
+
+- [x] 能不侵入现有的定义来定义么？--能
+- [] 能不侵入现有的定义来定义么？《--同名的会覆盖还是报错？
+
+类型定义中没有atom.project.getPaths，搜索了一下，别的atom-typescript中竟然没用到。。。这是怎么回事。而且atom-typescript中也没用到CompositeDisposable，真是日了狗了。
+
+### 2015年11月09日
+
+- [ ] 如何获取用户输入？
+
+### 2015年11月12日
+
+atom插件的界面，参考style guide就行了。
+
+典型的输入框代码：
+
+```html
+<div class='block'>
+    <label>You might want to type something here.</label>
+    <atom-text-editor mini>Something you typed...</atom-text-editor>
+</div>
+<div class='block'>
+    <label class='icon icon-file-directory'>Another field with an icon</label>
+    <atom-text-editor mini>Something else you typed...</atom-text-editor>
+</div>
+<div class='block'>
+    <button class='btn'>Do it</button>
+</div>
+```  
 
 ### atom如何为不同的系统设置不同快捷键？
 atom编辑器在body标签上，标明了是那种平台：

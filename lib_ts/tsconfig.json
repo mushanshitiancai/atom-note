@@ -1,0 +1,51 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "outDir": "../lib",
+        "sourceMap": false,
+        "jsx": "react"
+    },
+    "dts": {
+        "name": "atom-note"
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "!node_modules/**/*.ts",
+        "!node_modules/**/*.tsx"
+    ],
+    "files": [
+        "./atom-note.d.ts",
+        "./atom-note.ts",
+        "./commands/NoteCommands.ts",
+        "./typings/atom/atom.d.ts",
+        "./typings/emissary/emissary.d.ts",
+        "./typings/fs-extra/fs-extra.d.ts",
+        "./typings/jquery/jquery.d.ts",
+        "./typings/js-yaml/js-yaml.d.ts",
+        "./typings/lodash/lodash.d.ts",
+        "./typings/mixto/mixto.d.ts",
+        "./typings/moment/moment-node.d.ts",
+        "./typings/moment/moment.d.ts",
+        "./typings/node/node.d.ts",
+        "./typings/pathwatcher/pathwatcher.d.ts",
+        "./typings/q/Q.d.ts",
+        "./typings/space-pen/space-pen.d.ts",
+        "./typings/status-bar/status-bar.d.ts",
+        "./typings/text-buffer/text-buffer.d.ts",
+        "./typings/tsd.d.ts",
+        "./util/Logger.ts",
+        "./util/NotebookUtil.ts",
+        "./util/NoteUtil.ts",
+        "./util/Util.ts",
+        "./views/InputView.ts",
+        "./views/view.ts"
+    ],
+    "exclude": []
+}

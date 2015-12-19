@@ -7,10 +7,10 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
-'atom-text-editor[data-grammar~=gfm]':
-  'ctrl-v': 'atom-note:insert-image'
-  'tab'   : 'atom-note:insert-image'
-
-".atom-note atom-text-editor[mini]":
-  "enter": "core:confirm"
-  "escape": "core:cancel"
+# 'atom-text-editor[data-grammar~=gfm]':
+#   'ctrl-v': 'atom-note:insert-image'
+#   'tab'   : 'atom-note:insert-image'
+#
+# ".atom-note atom-text-editor[mini]":
+#   "enter": "core:confirm"
+#   "escape": "core:cancel"
