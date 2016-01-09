@@ -174,11 +174,9 @@ https://github.com/borisyankov/DefinitelyTyped/issues/4482
 类型定义中没有atom.project.getPaths，搜索了一下，别的atom-typescript中竟然没用到。。。这是怎么回事。而且atom-typescript中也没用到CompositeDisposable，真是日了狗了。
 
 ### 2015年11月09日
-
 - [ ] 如何获取用户输入？
 
 ### 2015年11月12日
-
 atom插件的界面，参考style guide就行了。
 
 典型的输入框代码：
@@ -195,12 +193,33 @@ atom插件的界面，参考style guide就行了。
 <div class='block'>
     <button class='btn'>Do it</button>
 </div>
-```  
+```
+
+### 2015年12月19日
+很久没动，主要原因，是闲麻烦。。。typescript转javascript这个过程，涉及的东西还是比较多。决定回到master分支上继续开发。
+
+而开发环境是。。。Sublime。不得不说，对已编辑器来说，atom还有许多地方没有做好，在我的mac上，启动竟然需要5秒。。。Sublime是瞬间。。。
+
+### 2016年01月09日
+到2016年了呢。
+
+今天写了两篇关于space-pen的博客：
+
+- [Atom的view系统SpacePen - - 博客频道 - CSDN.NET](http://blog.csdn.net/mazhibinit/article/details/50357805)
+- [Atom的view系统2-SpacePenViews - - 博客频道 - CSDN.NET](http://blog.csdn.net/mazhibinit/article/details/50488931)
+
+打算弄一个根据参数配置的输入对话框类。
+
+> 发现：文件名使用my-note.coffee格式，对应类MyNote。Atom项目的风格是这样的。
+
+
+## 问题
+- 使用electron的剪贴板模块，保存截图到文件中，分辨率会比较低，这是为什么？
 
 ### atom如何为不同的系统设置不同快捷键？
 atom编辑器在body标签上，标明了是那种平台：
 
-```
+```html
 <body tabindex="-1" class="platform-darwin is-blurred">
   ...
 </body>
@@ -224,8 +243,6 @@ editor.command 'snippets:expand', (e) =>
     e.abortKeyBinding()
 ```
 
-## 问题
-- 使用electron的剪贴板模块，保存截图到文件中，分辨率会比较低，这是为什么？
 
 ## 关键词
 - Git Large File Storage v1.0

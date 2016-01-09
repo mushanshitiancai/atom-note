@@ -7,6 +7,9 @@ momnet = require('moment')
 module.exports = NotebookUtil =
   noteFileExt: '.md'
 
+  createNotebook: () ->
+    
+
   isLegalNotebook: (projectPath)->
     if projectPath
       try
