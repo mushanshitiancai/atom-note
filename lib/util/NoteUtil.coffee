@@ -1,7 +1,7 @@
 fs   = require('fs-extra')
 path = require('path')
 Util = require('./Util')
-NotebookUtil = require('./NotebookUtil')
+NotebookUtil = require('./notebook-util')
 moment = require('moment')
 yaml = require('js-yaml')
 

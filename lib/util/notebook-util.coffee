@@ -1,14 +1,19 @@
 fs   = require('fs')
 path = require('path')
-Util = require('./Util')
+Util = require('./util')
 NoteUtil = require('./NoteUtil')
 momnet = require('moment')
 
 module.exports = NotebookUtil =
   noteFileExt: '.md'
 
-  createNotebook: () ->
-    
+  createNotebook: (path,author) ->
+    fs.stat path, (err,stat) =>
+      if err?.code isnt "ENOENT"
+        return Util.alert "path \"#{path}\" alerdy exist!"
+
+      fs.mkdirsSync(newPath)
+      atom.open(pathsToOpen:[newPath],newWindow:true)
 
   isLegalNotebook: (projectPath)->
     if projectPath
@@ -42,3 +47,6 @@ module.exports = NotebookUtil =
     NoteUtil.initNote(journalPath,momnet(date).format('YYYY年MM月DD日'))
 
     return atom.workspace.open(journalPath)
+
+
+

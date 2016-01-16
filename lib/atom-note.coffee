@@ -2,8 +2,8 @@ AtomNoteView = require './atom-note-view'
 {CompositeDisposable} = require 'atom'
 Editor = require './Edit'
 Notebook = require "./module/Notebook"
-Util = require "./util/Util"
-NotebookCommand = require './commands/NotebookCommand'
+Util = require "./util/util"
+NotebookCommand = require './commands/notebook-command'
 NoteCommand = require './commands/NoteCommand'
 
 TestView = require './views/test-view'
@@ -19,6 +19,8 @@ module.exports = AtomNote =
     console.log "atom-note activate"
     @subscriptions = new CompositeDisposable
     editor = new Editor
+
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atom-note:create-notebook': => NotebookCommand.create_notebook()
     # @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:insert-list-new-line': => editor.insertNewLine()
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:test': => @test()
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:insert-image': (e)=> NoteCommand.insert_image(e)
@@ -38,7 +40,7 @@ module.exports = AtomNote =
     #   });
     # inputView.display('hehe')
 
-    InputView.display('hehe',(text)-> console.log text);
+    # InputView.display('hehe',(text)-> console.log text);
 
 
   deactivate: ->

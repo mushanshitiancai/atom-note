@@ -5,6 +5,9 @@ module.exports = Util =
   FILENAME_REGEX: /\w+[-|\w]*/
   IMG_PREFIX_REGEX: /img\:\w+[-|\w]*/
 
+  alert: (msg)->
+    alert(msg)
+
   getProjectPaths: ->
     return atom.project.getPaths()
 

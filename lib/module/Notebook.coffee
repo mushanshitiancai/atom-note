@@ -1,21 +1,23 @@
 path = require "path"
 fs = require "fs-extra"
+Util = require "../util/util"
+NotebookConfig = require "./notebook-config"
 
 module.exports=
 class Notebook
 
-  initialize:->
+  @createNotebook: (newPath,author) ->
+    fs.stat newPath, (err,stat) =>
+      if err?.code isnt "ENOENT"
+        return Util.alert "path \"#{newPath}\" alerdy exist!"
 
-  # create a new Notebook
-  create: (newPath)->
-    try
-      stats = fs.lstatSync(newPath)
-      alert "foder existed!"
-    catch
-      # folder doesn't exist
       fs.mkdirsSync(newPath)
+
+      # create note.json to notebook folder
+      configPath = path.join(newPath,'note.json')
+      config = NotebookConfig.create(author:author)
+      config.writeToFile(configPath)
+
       atom.open(pathsToOpen:[newPath],newWindow:true)
-      return true
-    return false
 
   openTodayJournal: ->

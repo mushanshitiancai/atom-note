@@ -2,10 +2,6 @@
 
 module.exports = 
 class InputView extends View
-  @display: (title, onConfirm)->
-    @instance ?= new InputView()
-    @instance.display(title, onConfirm)
-
   @content: ->
     @div class:'input-vew', =>
       @label outlet:'title','Please input:'
@@ -23,9 +19,10 @@ class InputView extends View
     @params?.onConfirm(@textEditor.getText())
     @detach()
 
-  display: (title,onConfirm)->
+  display: (title, placeholder, onConfirm)->
     @params.onConfirm = onConfirm
     @title.text(title)
+    @textEditor.setText(placeholder)
 
     @panel ?= atom.workspace.addModalPanel(item: this, visible: false)
     @previousFocusElement = $(document.activeElement)
@@ -36,4 +33,4 @@ class InputView extends View
     return unless @panel.isVisible()
     @panel.hide()
     @previousFocusElement?.focus()
-    super
+    #super
