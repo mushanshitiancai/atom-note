@@ -215,9 +215,10 @@ atom插件的界面，参考style guide就行了。
 ### 2016年01月16日
 - [x] 完成create-notebook命令
 - [ ] 更新InputView，支持多个输入域
-- [ ] 完成create-note命令
+- [x] 完成add-note命令初版
 - [x] 完成Notebook的一些方法：getAllNotebookPathInProject，getActiveNotebook，isLegalNotebookPath
 - [x] 完成NotebookConfig的一些方法：isLegalNotebookConfig，readFromFile，writeToFile
+- [x] 添加Note相关类
 
 ## 问题
 - 使用electron的剪贴板模块，保存截图到文件中，分辨率会比较低，这是为什么？

@@ -1,10 +1,14 @@
 fs = require("fs")
+path = require("path")
 
 # Config class of notebook. 
 # Deal with note.json file in notebook folder.
 module.exports = 
 class NotebookConfig
   version = 0.1
+
+  @getConfigFilePath: (notebookPath)->
+    return path.join(notebookPath,'note.json')
 
   @create: ({author})->
     new NotebookConfig({author:author,version:version})
@@ -25,6 +29,8 @@ class NotebookConfig
 
   getJson: ->
     JSON.stringify(this,null,'  ') 
+
+
 
 readJsonFile = (filePath)->
   try

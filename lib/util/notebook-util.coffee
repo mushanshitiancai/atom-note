@@ -4,6 +4,7 @@ Util = require('./util')
 NoteUtil = require('./NoteUtil')
 momnet = require('moment')
 
+# deprecate
 module.exports = NotebookUtil =
   noteFileExt: '.md'
 

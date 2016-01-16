@@ -9,8 +9,6 @@ NoteCommand = require './commands/NoteCommand'
 TestView = require './views/test-view'
 InputView = require './views/input-view'
 
-global.notebook = new Notebook;
-
 module.exports = AtomNote =
   subscriptions: null
 
@@ -26,22 +24,8 @@ module.exports = AtomNote =
     @subscriptions.add atom.commands.add 'atom-text-editor', 'atom-note:insert-image': (e)=> NoteCommand.insert_image(e)
     @subscriptions.add atom.commands.add 'atom-workspace', 'atom-note:open-today-journal': => NotebookCommand.open_today_journal()
 
-    # workspaceElement = atom.views.getView(atom.workspace)
-    # workspaceElement.addEventListener 'keydown',(e)=>
-    #   if(e.metaKey && e.keyCode == 86)
-    #     # alert('fuck');
-
-    # dialog
-    # process.nextTick ->
-    # t = new TestView
-    # t.display()
-    # inputView = new InputView({
-    #   onConfirm: (text)-> console.log text
-    #   });
-    # inputView.display('hehe')
-
-    # InputView.display('hehe',(text)-> console.log text);
-
+    process.nextTick =>
+      @parseNotebook()
 
   deactivate: ->
     console.log "atom-note deactivate"
@@ -49,6 +33,8 @@ module.exports = AtomNote =
 
   serialize: ->
 
+  parseNotebook: ->
+    Notebook.getActiveNotebook()
 
   test: ->
     console.log("test")
