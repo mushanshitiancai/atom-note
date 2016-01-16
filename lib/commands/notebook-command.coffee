@@ -9,5 +9,8 @@ module.exports = NotebookCommand =
     DialogUtil.showCreateNotebookDialog 'Enter path to create notebook:', defaultPath, (path)->
       Notebook.createNotebook(path)
 
+  create_note: ()->
+    
+
   open_today_journal: ->
     NotebookUtil.openJournal(new Date())

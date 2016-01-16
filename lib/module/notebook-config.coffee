@@ -9,18 +9,31 @@ class NotebookConfig
   @create: ({author})->
     new NotebookConfig({author:author,version:version})
 
-  @readFromFile: (path)->
-    jsonStr = fs.readFileSync(path)
-    jsonObj = JSON.parse(jsonStr)
+  @readFromFile: (filePath)->
+    jsonObj = readJsonFile(filePath)
+    return undefined if not jsonObj
     new NotebookConfig(jsonObj)
 
-  writeToFile: (path)->
-    fs.writeFileSync(path,@getJson())
+  @isLegalNotebookConfig: (filePath)->
+    return true if readJsonFile(filePath)
+    return false
+
+  writeToFile: (filePath)->
+    fs.writeFileSync(filePath,@getJson())
 
   constructor: ({@author,@version})->
 
   getJson: ->
     JSON.stringify(this,null,'  ') 
+
+readJsonFile = (filePath)->
+  try
+    jsonStr = fs.readFileSync(filePath)
+    jsonObj = JSON.parse(jsonStr)
+    return jsonObj
+  catch e
+    return undefined
+  
 
 
 # jsonPath = "/Users/mazhibin/project/xxx/note.json"
@@ -31,5 +44,7 @@ class NotebookConfig
 # n = NotebookConfig.readFromFile(jsonPath)
 # console.log n.getJson()
 
-path = require 'path'
-console.log path.join('/home','xx.jon')
+# path = require 'path'
+# console.log path.join('/home','xx.jon')
+
+# console.log JSON.parse('{')
