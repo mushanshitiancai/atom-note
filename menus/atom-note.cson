@@ -6,6 +6,11 @@
       'command': 'atom-note:toggle'
     }
   ]
+  '.tree-view.full-menu': [
+    {'type': 'separator'}
+    {'label': '好玩New File', 'command': 'tree-view:add-file'}
+    {'type': 'separator'}
+  ]
 'menu': [
   {
     'label': 'Packages'

@@ -220,6 +220,38 @@ atom插件的界面，参考style guide就行了。
 - [x] 完成NotebookConfig的一些方法：isLegalNotebookConfig，readFromFile，writeToFile
 - [x] 添加Note相关类
 
+### 2016年01月17日
+- [ ] 提示使用atom.notifications
+
+学吉他的路上突然想到。如果我把Notebook类暴露到全局，那么就可以供其他插件使用，其他人就可以为atom-note开发插件！想想就好激动。
+
+还有一点，就是需要在tree-view的菜单上加入atom-note的功能，如何做到呢？
+
+👆有眉目了。
+
+    $('.tree-view-resizer.tool-panel').spacePenView.selectedEntry().getPath()
+
+这就可以获取当前选中的项目的路径。
+
+在menu/atom-note.cson中添加
+
+```
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle atom-note'
+      'command': 'atom-note:toggle'
+    }
+  ]
+  '.tree-view.full-menu': [
+    {'type': 'separator'}
+    {'label': 'test', 'command': 'tree-view:add-file'}
+    {'type': 'separator'}
+  ]
+```
+
+就可以在treeview中添加菜单了。Atom的设计的确很出色。
+
 ## 问题
 - 使用electron的剪贴板模块，保存截图到文件中，分辨率会比较低，这是为什么？
 
